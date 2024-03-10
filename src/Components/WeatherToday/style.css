@@ -1,0 +1,55 @@
+#temparature-logo{
+    font-size: 50px;
+}
+.weather-data{
+    margin-top: 20px;
+    width: 50%;
+}
+.weather-data>div{
+ display: flex;
+ justify-content: space-between;
+ margin-top: 1.1rem;
+}
+.weather-today{
+    width: 300px;
+    background-color:#FAFAFC;
+    padding-inline:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    background-color: aqua;
+ }
+ .search{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    background-color:rgb(219, 227, 234);
+    padding: 3px;
+    border-radius: 10px;
+    width: 70%;
+ }
+ .search>input{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+    background-color: rgb(219, 227, 234);
+ }
+ .sunny-icon{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+ input:focus{
+    outline: none;
+ }
+ #loc{
+  font-size: 20px;
+  margin: 10px;
+  text-align: center;
+ }
+
+ 

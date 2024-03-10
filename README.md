@@ -43,5 +43,9 @@ To provide you with accurate weather data, this app requires access to your devi
 
 The API used for fetching data has a rate limit, meaning that we can only make a limited number of calls to the API within an hour. Consequently, the application may frequently display a loading state as it waits for the rate limit to reset. To mitigate this, consider refreshing the data after some time has passed to ensure that new data can be fetched once the rate limit has reset
 
+## Contact Information:
+    9961536126
+    sreenadh669@gmail.com
+
 
 

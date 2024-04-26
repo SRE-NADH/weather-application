@@ -23,7 +23,7 @@ function App() {
      
 
 
-      // get location on initial rendering
+
       useEffect(()=>{
         getLocation();
       },[]);

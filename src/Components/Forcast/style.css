@@ -93,7 +93,7 @@
     gap: 10px;
 }
 
-@media  (max-width:565px) {
+@media  (max-width:600px) {
     .daily-forcasts-container{
        display: flex;
        flex-direction: column;

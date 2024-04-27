@@ -73,7 +73,7 @@
  }
 
 
- @media screen and (max-width:565px){
+ @media screen and (max-width:600px){
   .weather-today{
    background-color:#F6F6F8;
   }

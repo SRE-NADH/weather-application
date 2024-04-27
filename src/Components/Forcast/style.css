@@ -1,8 +1,9 @@
 .weather-forcast{
    flex-grow: 1;
    /* height: 100vw; */
-   background-color: aquamarine;
+   /* background-color: aquamarine; */
    overflow: auto;
+   background-color: #F6F6F8;
 }
 
 .weather-forcast h1{
@@ -13,17 +14,20 @@
     width: 100%;
     margin-top: 20px;
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
     gap:20px;
     align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
 }
 
 .forcast-grid{
-    background-color: #FAFAFC;
+    background-color:#FFFFFF;
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+}
+.xex{
+    background-color:#D3D7DC;
 }
 .tmp-div{
     display: flex;
@@ -41,6 +45,8 @@
 }
 .daily-data-container{
     margin-top: 20px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 .daily-data-container>h2{
     text-align: center;
@@ -48,23 +54,26 @@
 .daily-data{
     padding-inline: 30px;
     display: flex;
-    justify-content: space-between;
     margin-top: 20px;
+    flex-direction: column-reverse;
+    gap: 20px;
+    align-items:  center;
 
 }
 .flex-data{
     display: flex;
-    gap: 20px;
-    flex-direction: column;
-    align-items: space-between;
-
-   width: 30%;
-   padding-inline: 50px;
+     flex-wrap: wrap;
+     justify-content: center;
 }
 .flex-data>div{
    display: flex;
    gap: 20px;
    justify-content: space-between;
+   background-color:#FFFFFF;
+   padding: 10px;
+   border-radius: 5px;
+   margin: 5px;
+   width: 200px;
 }
 .image-container{
     display:flex;
@@ -84,16 +93,18 @@
     gap: 10px;
 }
 
-@media  (max-width:968px) {
+@media  (max-width:565px) {
     .daily-forcasts-container{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+       display: flex;
+       flex-direction: column;
     }
-}
-
-@media  (max-width:830px) {
-    .daily-forcasts-container{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+    .forcast-grid{
+     width: 250px;
     }
+    .weather-forcast>h1{
+       margin-top: 30px;
+     }
+     .flex-data>div{
+        width: 250px;
+     }
 }

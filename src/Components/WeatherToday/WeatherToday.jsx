@@ -3,6 +3,7 @@ import './style.css'
 import { CiLocationOn } from "react-icons/ci";
 import Loader from '../Loader/Loader';
 import { weatherObj,findWeather,getDateAndTime } from '../../utils/utils';
+import { FaSearch } from "react-icons/fa";
 
 
 
@@ -11,16 +12,27 @@ const [Weatherdata,setWeatherData] = useState(null);
 const [loading,setLoading] = useState(false);
 const [val,setValue] = useState(''); // control search value for setiing location
 
+// let apikey = '170c2ece549fea3609a4076df2c9fb0a';
+// useEffect(()=>{
+// const fetchNewData = async()=>{
+//  try{
+//    let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`);
+//    let data = await res.json();
+//    console.log(data);
+//  }
+//  catch(error){
+//   console.log(error)
+//  }
+// }  
+// fetchNewData();
+// },[]);
 
 // triger fetch api when clicking enter
 useEffect(() => {
-
   const handleKeyPress = (event) => {
     // check the enterd key 
     if (event.key === 'Enter') {
-      console.log(val);
       if(val){
-        console.log(1);
         // which trigger the api call to fetch weather data
         setLocation(val);
       } 
@@ -41,7 +53,6 @@ function handleValue(e){
 
   // fetch realtime data using laltitude and longitude or using location
  async function fetchReltimeWeather(location){
- 
    if(Weatherdata!==null && !location) return;// controlling unwanted call
    setLoading(true);
     try{
@@ -75,19 +86,27 @@ function handleValue(e){
   },[longitude,latitude])
 
 
+  // hanndle onclick on search button
+  function handleSearch(){
+   if(val){
+    setLocation(val);
+   }
+  }
+
+
 
   return (
     <div className='weather-today'>
-      <div className='search' ><CiLocationOn/><input type='text' onChange={handleValue} /></div>
-      {(loading || Weatherdata===null) ?<Loader/> :  <>
-      <p id='loc'>{Weatherdata.location.name}</p>
-      <p id='date'>{getDateAndTime(Weatherdata.data.time)}</p>
-     <div className='sunny-icon'>
+      <div className='search' ><CiLocationOn/><input type='text' onChange={handleValue} /> <button id='search-button' onClick={handleSearch} ><FaSearch/></button> </div>
+      
+      {(loading || Weatherdata===null) ?<Loader/>:<>
+       <p id='loc'>{Weatherdata.location.name}</p>
+       <p id='date'>{getDateAndTime(Weatherdata.data.time)}</p>
+       <div className='sunny-icon'>
        <img src={weatherObj[findWeather(Weatherdata.data.values.weatherCode)]} width={100}></img>
        <p>{findWeather(Weatherdata.data.values.weatherCode)}</p>
      </div>
       <p id='temparature-logo'>{Weatherdata.data.values.temperature}°C</p>
-      
       <div className='weather-data'>
       <div><p>Humidity</p><p>{Weatherdata.data.values.humidity}</p></div>
       <div><p>Pressure</p><p>{Weatherdata.data.values.pressureSurfaceLevel}</p></div>

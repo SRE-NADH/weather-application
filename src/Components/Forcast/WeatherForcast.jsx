@@ -30,10 +30,11 @@ const WeatherForcast = ({latitude,longitude,location}) => {
 
     
     let data = await response.json();
-    console.log(data);
     if(!data.code){
       setLoading(false);
-      setForcastData(data.timelines.daily);
+      let tmpData = data.timelines.daily;
+      tmpData.splice(0,1)
+      setForcastData(tmpData);
     }
     else{
       setError('failed to fetch forcast data');
@@ -67,8 +68,8 @@ const WeatherForcast = ({latitude,longitude,location}) => {
       <h1>Forcast Report</h1>
       <div className='daily-forcasts-container'>
 
-        {forcastData.length>0 && forcastData.map((item,index)=>(
-             <div key={index} onClick={()=>{setIndex(index)}}  className='forcast-grid'>
+        {forcastData.length>0 && forcastData.map((item,ind)=>(
+             <div key={ind} onClick={()=>{setIndex(ind)}}  className={ind===index?'forcast-grid xex':'forcast-grid'}>
              <p id='date'>{getDateAndTime(item.time)}</p>
                <div className='tmp-div'>
                 <p>{item.values.temperatureApparentAvg}°C</p>
